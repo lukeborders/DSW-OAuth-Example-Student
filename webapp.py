@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, session, request, jsonify
+ffrom flask import Flask, redirect, url_for, session, request, jsonify
 from flask_oauthlib.client import OAuth
 from flask import render_template
 
@@ -59,7 +59,7 @@ def authorized():
     else:
         try:
             #save user data and set log in message
-            session['github_token']=resp(['access_token'],'')
+            session['github_token']=(resp['access_token'],'')
             session['user_data']=github.get('user').data
             message = 'You were successfully logged in as " + session['user_data']['login']"
         except:
