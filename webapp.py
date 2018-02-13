@@ -79,7 +79,10 @@ def renderPage1():
 
 @app.route('/page2')
 def renderPage2():
-    return render_template('page2.html')
+    countDRACULA = 0
+    if 'public_repos' in session['user_data']:
+        countDRACULA = session['user_data']['public_repos']
+    return render_template('page2.html', publicrepocount = countDRACULA)
 
 # the tokengetter is automaticallly called to check who is logged in
 @github.tokengetter
