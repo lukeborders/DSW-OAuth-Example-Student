@@ -43,7 +43,36 @@ def home():
 #redirect to GITHUB's OAUTH page and confirm the callback URL
 @app.route('/login')
 def login():   
-    return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
+    return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))                                                                                                                    '''{'avatar_url': 'https://avatars3.githubusercontent.com/u/31492762?v=4',
+ 'bio': 'Aspiring full stack developer',
+ 'blog': '',
+ 'company': None,
+ 'created_at': '2017-08-30T23:12:58Z',
+ 'email': None,
+ 'events_url': 'https://api.github.com/users/lukeborders/events{/privacy}',
+ 'followers': 0,
+ 'followers_url': 'https://api.github.com/users/lukeborders/followers',
+ 'following': 0,
+ 'following_url': 'https://api.github.com/users/lukeborders/following{/other_user}',
+ 'gists_url': 'https://api.github.com/users/lukeborders/gists{/gist_id}',
+ 'gravatar_id': '',
+ 'hireable': None,
+ 'html_url': 'https://github.com/lukeborders',
+ 'id': 31492762,
+ 'location': None,
+ 'login': 'lukeborders',
+ 'name': 'Luke Borders',
+ 'organizations_url': 'https://api.github.com/users/lukeborders/orgs',
+ 'public_gists': 0,
+ 'public_repos': 18,
+ 'received_events_url': 'https://api.github.com/users/lukeborders/received_events',
+ 'repos_url': 'https://api.github.com/users/lukeborders/repos',
+ 'site_admin': False,
+ 'starred_url': 'https://api.github.com/users/lukeborders/starred{/owner}{/repo}',
+ 'subscriptions_url': 'https://api.github.com/users/lukeborders/subscriptions',
+ 'type': 'User',
+ 'updated_at': '2018-02-09T17:04:37Z',
+ 'url': 'https://api.github.com/users/lukeborders'}'''
 
 @app.route('/logout')
 def logout():
