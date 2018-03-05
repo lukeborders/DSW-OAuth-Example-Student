@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, session, request, jsonify
 from flask_oauthlib.client import OAuth
 from flask import render_template
-
+from flash import flash
 import pprint
 import os
 
@@ -55,18 +55,19 @@ def authorized():
     resp = github.authorized_response()
     if resp is None:
         session.clear()
-        message = 'Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args)      
+        flash('Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'])     
     else:
         try:
             #save user data and set log in message
             session['github_token']=(resp['access_token'],'')
             session['user_data']=github.get('user').data
-            message = 'You were successfully logged in as ' + session['user_data']['login']
+            flash('You were successfully logged in as ' + + session['user_data']['login'])  
+    return render_template('home.html')
         except:
             #clear the session and give error message
             session.clear()
-            message='Unable to login. Please try again.'
-    return render_template('message.html', message=message)
+            flash('Unable to login. Please try again.')
+    return render_template('login.html', message=message)
 
 
 @app.route('/page1')
