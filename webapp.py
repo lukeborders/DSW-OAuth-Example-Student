@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, session, request, jsonify
 from flask_oauthlib.client import OAuth
 from flask import render_template
-from flash import flash
+from flask import flash
 import pprint
 import os
 
